@@ -18,13 +18,16 @@ namespace Repository.Database
 
         public DbSet<TAppSetting> TAppSetting { get; set; }
 
+     
 
         public DbSet<TArticle> TArticle { get; set; }
 
 
         public DbSet<TCategory> TCategory { get; set; }
 
+        public DbSet<TClub> TClub { get; set; }
 
+        public DbSet<TClubStudent> TClubStudent { get; set; }
 
         public DbSet<TDataUpdateLog> TDataUpdateLog { get; set; }
 
@@ -47,6 +50,7 @@ namespace Repository.Database
 
         public DbSet<TLog> TLog { get; set; }
 
+        public DbSet<TMajor> TMajor { get; set; }
 
         public DbSet<TOrder> TOrder { get; set; }
 
@@ -74,9 +78,13 @@ namespace Repository.Database
 
         public DbSet<TRole> TRole { get; set; }
 
+        public DbSet<TStudent> TStudent { get; set; }
+
 
         public DbSet<TTaskSetting> TTaskSetting { get; set; }
 
+
+        public DbSet<TTeacher> TTeacher { get; set; }
 
         public DbSet<TUser> TUser { get; set; }
 
