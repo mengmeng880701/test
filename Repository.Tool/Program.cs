@@ -17,7 +17,7 @@ namespace Repository.Tool
                     {
                         services.AddDbContext<DatabaseContext>(options =>
                         {
-                            var connectionString = "Host=127.0.0.1;Database=webcore;Username=postgres;Password=123456";
+                            var connectionString = "Host=127.0.0.1;Database=1124;Username=postgres;Password=123456";
 
                             NpgsqlDataSourceBuilder dataSourceBuilder = new(connectionString);
 
