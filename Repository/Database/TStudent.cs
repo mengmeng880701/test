@@ -10,7 +10,7 @@ namespace Repository.Database
     public class TStudent:CD
     {
 
-        public long Name { get; set; }
+        public string Name { get; set; }
 
         public string Phone {  get; set; }
 
