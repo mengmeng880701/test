@@ -22,6 +22,27 @@ namespace Client.WebAPI.Controllers
     public class AuthorizeController(IAuthorizeService authorizeService) : ControllerBase
     {
 
+        [HttpGet]
+        public void Test([FromServices] DatabaseContext db, IdService idService)
+        {
+            TMajor major = new();
+            major.Id = idService.GetId();
+            major.Name = "國文";
+
+            db.TMajor.Add(major);//插入表中
+
+            db.SaveChanges();//保存
+
+            TMajor major2 = new();
+            major.Id = idService.GetId();
+            major.Name = "英文";
+
+            db.TMajor.Add(major);//插入表中
+
+            db.SaveChanges();//保存
+
+        }
+
 
         /// <summary>
         /// 获取公钥
