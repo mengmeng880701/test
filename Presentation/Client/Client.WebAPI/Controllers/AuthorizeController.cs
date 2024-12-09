@@ -22,83 +22,139 @@ namespace Client.WebAPI.Controllers
     public class AuthorizeController(IAuthorizeService authorizeService) : ControllerBase
     {
 
+        //[HttpGet]
+        //public void Test([FromServices] DatabaseContext db, IdService idService)
+        //{
+
+
+        //    //輸入major資料
+        //    TMajor major = new();
+        //    major.Id = idService.GetId();
+        //    major.Name = "國文";
+
+        //    db.TMajor.Add(major);//插入表中
+
+        //    db.SaveChanges();//保存
+
+        //    TMajor major2 = new();
+        //    major.Id = idService.GetId();
+        //    major.Name = "英文";
+
+        //    db.TMajor.Add(major);//插入表中
+
+        //    db.SaveChanges();//保存
+
+        //    TMajor major3 = new();
+        //    major.Id = idService.GetId();
+        //    major.Name = "數學";
+
+        //    db.TMajor.Add(major);//插入表中
+
+        //    db.SaveChanges();//保存
+
+
+        //    //輸入學生表資料
+        //    TStudent student = new TStudent();
+        //    student.Id = idService.GetId();
+        //    student.Name = "小明";
+        //    student.Phone = "0978135363";   
+
+        //    db.TStudent.Add(student);
+        //    db.SaveChanges();
+
+        //    TStudent student2 = new TStudent();
+        //    student.Id = idService.GetId();
+        //    student.Name = "小華";
+        //    student.Phone = "451325765";
+
+        //    db.TStudent.Add(student);
+        //    db.SaveChanges();
+
+        //    TStudent student3 = new TStudent();
+        //    student.Id = idService.GetId();
+        //    student.Name = "小張";
+        //    student.Phone = "451155525";
+
+        //    db.TStudent.Add(student);
+        //    db.SaveChanges();
+
+        //    //輸入社團表資料
+        //    TClub club = new TClub();
+        //    club.Id = idService.GetId();
+        //    club.Name = "籃球社";
+
+        //    db.Add(club);
+        //    db.SaveChanges();
+
+        //    TClub club1 = new TClub();
+        //    club.Id = idService.GetId();
+        //    club.Name = "足球社";
+
+        //    db.Add(club);
+        //    db.SaveChanges();
+
+        //    TClub club2 = new TClub();
+        //    club.Id = idService.GetId();
+        //    club.Name = "羽球社";
+
+        //    db.TClub.Add(club);***與db.Add(club);
+        //    db.SaveChanges();
+
+        //    //多對多學生查詢資料表
+        //    TClubStudent clubStudent = new TClubStudent();
+        //    clubStudent.Id = idService.GetId();
+        //    clubStudent.StudentId = idService.GetId();
+
+        //    db.Add(clubStudent);
+        //    db.SaveChanges();
+        //}
+
         [HttpGet]
         public void Test([FromServices] DatabaseContext db, IdService idService)
         {
+            TClub club = new();
+            club.Id =idService.GetId();
 
-            
-            //輸入major資料
-            TMajor major = new();
-            major.Id = idService.GetId();
-            major.Name = "國文";
+            club.Name = "足球社";
+            club.Description = "青少年最喜歡的俱樂部";
+            db.TClub.Add(club);
+            db.SaveChanges();
 
-            db.TMajor.Add(major);//插入表中
 
-            db.SaveChanges();//保存
+            TClub club2 = new ();
+            club.Id = idService.GetId();
 
-            TMajor major2 = new();
-            major.Id = idService.GetId();
-            major.Name = "英文";
+            club.Name = "籃球社";
+            club.Description = "青少年最喜歡的俱樂部";
+            db.TClub.Add(club);
+            db.SaveChanges();
 
-            db.TMajor.Add(major);//插入表中
-
-            db.SaveChanges();//保存
-
-            TMajor major3 = new();
+            TMajor major = new TMajor();
             major.Id = idService.GetId();
             major.Name = "數學";
+            major.Description = "微積分";
+            db.TMajor.Add(major);
+            db.SaveChanges();
 
-            db.TMajor.Add(major);//插入表中
+            TTeacher teacher = new ();
+            teacher.Id = idService.GetId();
+            teacher.Name = "吳曉華";
+            teacher.Phone = "097845123";
+            teacher.Email = "456@gmail.com";
+            teacher.MajorId = major.Id;
+            db.TTeacher.Add(teacher);
+            db.SaveChanges();
 
-            db.SaveChanges();//保存
 
 
-            //輸入學生表資料
-            TStudent student = new TStudent();
+            TStudent student = new ();
             student.Id = idService.GetId();
-            student.Name = "小明";
-            student.Phone = "0978135363";   
+            student.Name = "小白";
+            student.Phone = "12457893";
 
             db.TStudent.Add(student);
             db.SaveChanges();
 
-            TStudent student2 = new TStudent();
-            student.Id = idService.GetId();
-            student.Name = "小華";
-            student.Phone = "451325765";
-
-            db.TStudent.Add(student);
-            db.SaveChanges();
-
-            TStudent student3 = new TStudent();
-            student.Id = idService.GetId();
-            student.Name = "小張";
-            student.Phone = "451155525";
-
-            db.TStudent.Add(student);
-            db.SaveChanges();
-
-            //輸入社團表資料
-            TClub club = new TClub();
-            club.Id = idService.GetId();
-            club.Name = "籃球社";
-
-            db.TStudent.Add(student);
-            db.SaveChanges();
-
-            TClub club1 = new TClub();
-            club.Id = idService.GetId();
-            club.Name = "足球社";
-
-            db.TStudent.Add(student);
-            db.SaveChanges();
-
-            TClub club2 = new TClub();
-            club.Id = idService.GetId();
-            club.Name = "羽球社";
-
-            db.TStudent.Add(student);
-            db.SaveChanges();
         }
 
 
