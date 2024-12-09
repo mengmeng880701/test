@@ -151,8 +151,16 @@ namespace Client.WebAPI.Controllers
             student.Id = idService.GetId();
             student.Name = "小白";
             student.Phone = "12457893";
+            student.TeacherId=teacher.Id;
 
             db.TStudent.Add(student);
+            db.SaveChanges();
+
+            TClubStudent clubStudent = new ();
+            clubStudent.Id = idService.GetId();
+            clubStudent.ClubId = club.Id;
+            clubStudent.StudentId = student.Id;
+            db.TClubStudent.Add(clubStudent);
             db.SaveChanges();
 
         }
