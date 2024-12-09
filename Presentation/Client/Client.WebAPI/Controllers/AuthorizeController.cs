@@ -152,6 +152,7 @@ namespace Client.WebAPI.Controllers
             student.Name = "小白";
             student.Phone = "12457893";
             student.TeacherId=teacher.Id;
+            student.MajorId = major.Id;
 
             db.TStudent.Add(student);
             db.SaveChanges();
