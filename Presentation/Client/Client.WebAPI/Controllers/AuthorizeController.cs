@@ -113,7 +113,7 @@ namespace Client.WebAPI.Controllers
         public void Test([FromServices] DatabaseContext db, IdService idService)
         {
             TClub club = new();
-            club.Id =idService.GetId();
+            club.Id = idService.GetId();
 
             club.Name = "足球社";
             club.Description = "青少年最喜歡的俱樂部";
